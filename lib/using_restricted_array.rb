@@ -7,35 +7,84 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  i = 0
+  while array[i] != nil
+    i += 1
+  end
+  return i
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    p "#{array[i]}"
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  while i < length #+ 1 || array[i] == value_to_find
+    if array[i] == value_to_find
+      return true
+    else
+      i += 1
+    end
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  largest = array[0]
+  until i == length - 1
+    if largest > array[i + 1]
+      largest
+    elsif largest < array[i + 1]
+      largest = array[i + 1]
+    else
+      largest
+    end
+    i += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  i = 0
+  smallest = array[0]
+  until i == (length - 1)
+    if smallest < array[i + 1]
+      smallest
+    elsif smallest > array[i + 1]
+      smallest = array[i + 1]
+    else
+      smallest
+    end
+    i += 1
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  if length > 0
+    i = 0
+    x = length - 1
+    while i < x
+      array[i] = array[x]
+      array[x] = array[i]  # is this the right spot
+      i += 1
+      x -= 1
+    end
+    return array
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
