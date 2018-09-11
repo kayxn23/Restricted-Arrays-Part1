@@ -78,8 +78,9 @@ def reverse(array, length)
     i = 0
     x = length - 1
     while i < x
-      array[i] = array[x]
+      storage = array[x]
       array[x] = array[i]  # is this the right spot
+      array[i] = storage
       i += 1
       x -= 1
     end

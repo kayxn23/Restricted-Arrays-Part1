@@ -4,6 +4,8 @@ require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 require 'awesome_print'
 require 'minitest/pride'
+gem 'minitest', '>= 5.0.0'
+
 
 
 describe "restricted array" do
